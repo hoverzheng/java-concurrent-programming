@@ -74,4 +74,100 @@ class X {
  }
 ```
 
+### ReentrantLock锁实战
 
+#### 一个简单的使用ReentrantLock锁的例子
+
+```
+package PlayReentrantLock;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.locks.ReentrantLock;
+
+/**
+ * Created by hover.
+ *
+ * 说明：
+ * 演示Reentrant的基本用法，可以看到和synchronized的效果相同。
+ * 这里的效果是：输出的字母或数字是连续的，没有交叉输出，说明是原子执行的。可以把锁去掉看看反面的效果。
+ *
+ */
+public class SimpleUse {
+
+    public static ReentrantLock rtlock = new ReentrantLock();
+
+    public static void main(String[] args) {
+        // run test method
+        SimpleUse s = new SimpleUse();
+        s.testRTLock();
+    }
+
+    private void testRTLock() {
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+        executor.execute(new PrintChar('s', 1000));
+        executor.execute(new PrintNum(1000));
+        executor.execute(new PrintChar('b', 1000));
+
+        executor.shutdown();
+    }
+
+    // inner class: just print char
+    class PrintChar implements Runnable {
+        private char aChar;
+        private int times;
+
+        PrintChar(char c, int t) {
+            aChar = c;
+            times = t;
+        }
+
+        public void run() {
+            rtlock.lock();
+            try {
+                for (int i = 0; i < times; i++) {
+                    System.out.print(aChar);
+                }
+            } finally {
+                rtlock.unlock();
+            }
+
+        }
+    }
+
+    // inner class: just print number
+    class PrintNum implements Runnable {
+        private int lastNum;
+
+        public PrintNum(int num) {
+            lastNum = num;
+        }
+
+        public void run() {
+
+            rtlock.lock();
+            try {
+                for (int i = 0; i <= lastNum; i++) {
+                    System.out.print(" " + i);
+                }
+            } finally {
+                rtlock.unlock();
+            }
+        }
+    }
+}
+
+```
+
+对该程序的说明:
+
+* 该程序使用了线程池的服务接口ExecutorService，该接口的原理和实现会专门有章节进行讲解。
+* 注意加锁的地方，我们把打印一长串字符或数字的地方进行了加锁，若不加锁，会产生交叉打印数字和字母的现象，可以自己试试。
+* 这里的锁定义是一个静态变量，在该例中，若不是静态变量也不会有问题，因为是通过主类对象运行的。
+* 虽然输出的字母和数值都是连续的，但整体的顺序不可预知，这是由线程的调度决定的（谁先持有该锁，谁先运行）。比如：
+	结果可能是： 
+	* sssssssssss...bbbbbbbbb...1 2 3 4...1000
+	也可能是:
+	* bbbbbbbbbb...sssssssss...1 2 3 4...1000
+	或
+	* 1 2 3 4 5 ... 1000 ...sssssssss...bbbbbbbb...bbb
