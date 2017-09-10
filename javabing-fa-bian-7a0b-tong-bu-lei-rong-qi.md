@@ -246,7 +246,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
 
 #### 对外函数
 
-1. offer(o) 和 poll()
+1.offer(o) 和 poll()
 这两个函数提供了ArrayBlockingQueue非阻塞的操作。
 
 * public boolean offer(E e)函数
@@ -291,7 +291,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 ```
 
-2. put(o) 和 take()
+2.put(o) 和 take()
 这一对函数实现了一个经典的生产者消费者模型。队列满或队列为空时，都会阻塞等待。
 
 * public void put(E e) throws InterruptedException函数
@@ -341,7 +341,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
 说明：可以看出take()和put可以配对使用。因为他们都会阻塞。他们配合使用，形成了经典的环形缓冲区的实现。
 
 
-3. offer(o, timeout, timeunit) 和 poll(timeout, timeunit)
+3.offer(o, timeout, timeunit) 和 poll(timeout, timeunit)
 
 * public E poll(long timeout, TimeUnit unit) 
 在获取队列中的元素时，会先等待一会，直到超时。
