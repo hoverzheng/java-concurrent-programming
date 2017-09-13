@@ -475,13 +475,3 @@ public class DoArrayBQ {
 
 ## 对ArrayBlockingQueue的总结
 对ArrayBlockingQueue是具有固定容量的阻塞队列。它也提供了非阻塞的操作函数，需要根据实际情况选择使用。
-
-
-# LinkedBlockingDeque
-待续
-
-# PriorityBlockingQueue
-待续
-
-# DelayQueue
-待续
