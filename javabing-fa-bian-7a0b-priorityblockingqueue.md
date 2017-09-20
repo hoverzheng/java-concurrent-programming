@@ -1,4 +1,3 @@
-
 # PriorityBlockingQueue要点
 
 * PriorityBlockingQueue类实现了BlockingQueue接口。
