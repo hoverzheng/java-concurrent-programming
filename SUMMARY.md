@@ -7,4 +7,5 @@
 * [java并发编程-LinkedBlockingDeque](javabing-fa-bian-7a0b-linkedblockingdeque.md)
 * [java并发编程-PriorityBlockingQueue](javabing-fa-bian-7a0b-priorityblockingqueue.md)
 * [java并发编程-CyclicBarrier](javabing-fa-bian-7a0b-cyclicbarrier.md)
+* [java线程池的使用](javaxian-cheng-chi-de-shi-yong.md)
 
