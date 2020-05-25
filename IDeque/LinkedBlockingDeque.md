@@ -142,11 +142,11 @@ public LinkedBlockingDeque(Collection<? extends E> c) {
 
 ### 函数的返回值总结
 
- |  operation|Throws exception | Special value | Blocks | Times out |
- |   -  |    -     |      -        |  -     |    -     |
- |Insert |addFirst(e) | offerFirst(e) | putFirst(e) | offerFirst(e, time, unit)  |
- |Remove |removeFirst() |pollFirst() | takeFirst()  | pollFirst(time, unit) |
- |Examine |getFirst() |peekFirst()   |not applicable| not applicable |
+|  operation|Throws exception | Special value | Blocks | Times out |
+|   -  |    -     |      -        |  -     |    -     |
+|Insert |addFirst(e) | offerFirst(e) | putFirst(e) | offerFirst(e, time, unit)  |
+|Remove |removeFirst() |pollFirst() | takeFirst()  | pollFirst(time, unit) |
+|Examine |getFirst() |peekFirst()   |not applicable| not applicable |
 
 
 ### 基础函数

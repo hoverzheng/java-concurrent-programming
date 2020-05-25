@@ -40,7 +40,7 @@
 
 |  method   |Throws Exception|  Special Value   |  Blocks  |   Times Out  |
 |     -     |    -           |       -          |    -     |      -       |
-|Insert     |                |  put(o),offer(o),add(o) |          |              | 
+|Insert     |                |  put(o),offer(o),add(o) |          |              |
 |Remove     |                |  poll(),remove(o)| take()   |  poll(t)     |
 |Examine    |                |  peek()          |          |              |
 

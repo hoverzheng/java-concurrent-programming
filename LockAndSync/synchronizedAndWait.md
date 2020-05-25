@@ -141,7 +141,7 @@ public class DoStaticSync {
    * b，是针对不同实例的，因此可以同时被访问
    * c，因为是static synchronized，所以不同实例之间仍然会被限制,相当于Something.isSyncA()与   Something.isSyncB()了，因此不能被同时访问。
    * 那么，第d呢?，书上的 答案是可以被同时访问的，答案理由是synchronzied的是实例方法与synchronzied的类方法由于锁定（lock）不同的原因。
- 
+
 因此，通过对类的方法加上synchronized来实现对该类的对象（代表共享区域）的原子操作,防止对多线程对共享数据的修改造成的不确定性，因此多线程中可以通过将要共享的数据和对数据修改的方法封装到一个类中，从而实现多线程中的并行运行，如：多线程中对同一个文件的写入操作。
 
 
