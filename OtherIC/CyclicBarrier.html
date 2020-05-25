@@ -1,0 +1,625 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>CyclicBarrier · java concurrent programming</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Hover Zheng">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../ThreadPool/ThreadPool-Intro.html" />
+    
+    
+
+    
+        <link rel="shortcut icon" href='../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../favicon.ico' type="image/x-icon">
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hoverzheng/java-concurrent-programming","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://hoverzheng.github.io" target="_blank" class="custom-link">Hover Zheng</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">介绍</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第一部分 并发容器</li>
+        
+        
+    
+
+    
+        
+        <li class="header">第一章 锁和条件变量</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../LockAndSync/synchronizedAndWait.html">
+            
+                <a href="../LockAndSync/synchronizedAndWait.html">
+            
+                    
+                    Sync和Wait
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../LockAndSync/ReentrantLockAndCondition.html">
+            
+                <a href="../LockAndSync/ReentrantLockAndCondition.html">
+            
+                    
+                    显示锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第二章 Queue</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../IQueue/ArrayBlockingQueue.html">
+            
+                <a href="../IQueue/ArrayBlockingQueue.html">
+            
+                    
+                    ArrayBlockingQueue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    ConcurrentLinkedQueue
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" >
+            
+                <span>
+            
+                    
+                    DelayQueue
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" >
+            
+                <span>
+            
+                    
+                    LinkedBlockingQueue
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" >
+            
+                <span>
+            
+                    
+                    LinkedTransferQueue
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../IQueue/PriorityBlockingQueue.html">
+            
+                <a href="../IQueue/PriorityBlockingQueue.html">
+            
+                    
+                    PriorityBlockingQueue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" >
+            
+                <span>
+            
+                    
+                    SynchronousQueue
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第三章 Map</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    ConcurrentHashMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" >
+            
+                <span>
+            
+                    
+                    ConcurrentSkipListMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第四章 Deque</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../IDeque/LinkedBlockingDeque.html">
+            
+                <a href="../IDeque/LinkedBlockingDeque.html">
+            
+                    
+                    LinkedBlockingDeque
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" >
+            
+                <span>
+            
+                    
+                    ConcurrentLinkedDeque
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第五章 Set</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    ConcurrentSkipListSet
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" >
+            
+                <span>
+            
+                    
+                    CopyOnWriteArraySet
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第六章 List</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    CopyOnWriteArrayList
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第七章 并发容器其他类</li>
+        
+        
+    
+        <li class="chapter active" data-level="9.1" data-path="CyclicBarrier.html">
+            
+                <a href="CyclicBarrier.html">
+            
+                    
+                    CyclicBarrier
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第二部分 线程池</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../ThreadPool/ThreadPool-Intro.html">
+            
+                <a href="../ThreadPool/ThreadPool-Intro.html">
+            
+                    
+                    基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" >
+            
+                <span>
+            
+                    
+                    ThreadPoolExecutor
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" >
+            
+                <span>
+            
+                    
+                    ScheduledThreadPoolExecutor
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >CyclicBarrier</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="cyclicbarrier">CyclicBarrier</h1>
+<p>java.util.concurrent.CyclicBarrier&#x7C7B;&#x662F;&#x4E00;&#x79CD;&#x540C;&#x6B65;&#x673A;&#x5236;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x4E00;&#x7EC4;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x5230;&#x8FBE;&#x5171;&#x540C;&#x5C4F;&#x969C;&#x70B9;&#x3002;CyclicBarriers&#x5728;&#x6D89;&#x53CA;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x7EBF;&#x7A0B;&#x65B9;&#x7684;&#x7A0B;&#x5E8F;&#x4E2D;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x8FD9;&#x4E9B;&#x7EBF;&#x7A0B;&#x5FC5;&#x987B;&#x5076;&#x5C14;&#x76F8;&#x4E92;&#x7B49;&#x5F85;&#x3002;CyclicBarrier&#x88AB;&#x79F0;&#x4E3A;&#x5FAA;&#x73AF;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x7B49;&#x5F85;&#x7684;&#x7EBF;&#x7A0B;&#x88AB;&#x91CA;&#x653E;&#x4E4B;&#x540E;&#x91CD;&#x65B0;&#x4F7F;&#x7528;&#x3002;
+&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x5FC5;&#x987B;&#x7B49;&#x5F85;&#xFF0C;&#x76F4;&#x5230;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x5230;&#x8FBE;&#x4E4B;&#x524D;&#xFF0C;&#x624D;&#x80FD;&#x7EE7;&#x7EED;&#x4EFB;&#x4F55;&#x7EBF;&#x7A0B;&#x3002;&#x4EE5;&#x4E0B;&#x662F;&#x56FE;&#x793A;&#xFF1A;</p>
+<figure id="fig9.1.1"><img src="assets/cyclic-barrier.png" alt="CyclicBarrier" style="zoom:75%;"><figcaption>&#x56FE;&#x7247; - CyclicBarrier</figcaption></figure>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hoverzheng.github.io 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Updated:
+2020-05-25 22:39:45
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="../ThreadPool/ThreadPool-Intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 基本概念">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"CyclicBarrier","level":"9.1","depth":1,"next":{"title":"基本概念","level":"10.1","depth":1,"path":"ThreadPool/ThreadPool-Intro.md","ref":"./ThreadPool/ThreadPool-Intro.md","articles":[]},"previous":{"title":"CopyOnWriteArrayList","level":"8.1","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["github","codesnippet","splitter","page-toc-button","image-captions","editlink","back-to-top-button","-lunr","-search","search-plus","github-buttons@2.1.0","favicon@^0.0.2","tbfed-pagefooter@^0.0.1","3-ba"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © hoverzheng.github.io 2017","modify_label":"Updated:","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hoverzheng/java-concurrent-programming"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/hoverzheng/java-concurrent-programming/blob/master/"},"splitter":{},"codesnippet":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"page-toc-button":{},"back-to-top-button":{},"github-buttons":{"repo":"hoverzheng/java-concurrent-programming","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"11f7d254cfa4e0ca44b175c66d379ecc"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{},"image-captions":{"caption":"图片 - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Hover Zheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"./OtherIC/CyclicBarrier.html#fig9.1.1","level":"9.1","list_caption":"Figure: CyclicBarrier","alt":"CyclicBarrier","nro":1,"url":"./assets/cyclic-barrier.png","index":1,"caption_template":"图片 - _CAPTION_","label":"CyclicBarrier","attributes":{},"skip":false,"key":"9.1.1"}]},"title":"java concurrent programming","language":"zh-hans","links":{"sidebar":{"Hover Zheng":"https://hoverzheng.github.io"}},"gitbook":"*","description":"Java concurrent programming|hoverzheng.github.io|Hover Zheng"},"file":{"path":"OtherIC/CyclicBarrier.md","mtime":"2020-05-25T14:39:45.521Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-25T14:44:50.395Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

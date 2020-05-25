@@ -1,0 +1,1097 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>PriorityBlockingQueue · java concurrent programming</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Hover Zheng">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    
+        <link rel="shortcut icon" href='../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../favicon.ico' type="image/x-icon">
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hoverzheng/java-concurrent-programming","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://hoverzheng.github.io" target="_blank" class="custom-link">Hover Zheng</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">介绍</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第一部分 并发容器</li>
+        
+        
+    
+
+    
+        
+        <li class="header">第一章 锁和条件变量</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../LockAndSync/synchronizedAndWait.html">
+            
+                <a href="../LockAndSync/synchronizedAndWait.html">
+            
+                    
+                    Sync和Wait
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../LockAndSync/ReentrantLockAndCondition.html">
+            
+                <a href="../LockAndSync/ReentrantLockAndCondition.html">
+            
+                    
+                    显示锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第二章 Queue</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="ArrayBlockingQueue.html">
+            
+                <a href="ArrayBlockingQueue.html">
+            
+                    
+                    ArrayBlockingQueue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    ConcurrentLinkedQueue
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" >
+            
+                <span>
+            
+                    
+                    DelayQueue
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" >
+            
+                <span>
+            
+                    
+                    LinkedBlockingQueue
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" >
+            
+                <span>
+            
+                    
+                    LinkedTransferQueue
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.6" data-path="PriorityBlockingQueue.html">
+            
+                <a href="PriorityBlockingQueue.html">
+            
+                    
+                    PriorityBlockingQueue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" >
+            
+                <span>
+            
+                    
+                    SynchronousQueue
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第三章 Map</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    ConcurrentHashMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" >
+            
+                <span>
+            
+                    
+                    ConcurrentSkipListMap
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第四章 Deque</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../IDeque/LinkedBlockingDeque.html">
+            
+                <a href="../IDeque/LinkedBlockingDeque.html">
+            
+                    
+                    LinkedBlockingDeque
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" >
+            
+                <span>
+            
+                    
+                    ConcurrentLinkedDeque
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第五章 Set</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" >
+            
+                <span>
+            
+                    
+                    ConcurrentSkipListSet
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" >
+            
+                <span>
+            
+                    
+                    CopyOnWriteArraySet
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第六章 List</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <span>
+            
+                    
+                    CopyOnWriteArrayList
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第七章 并发容器其他类</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../OtherIC/CyclicBarrier.html">
+            
+                <a href="../OtherIC/CyclicBarrier.html">
+            
+                    
+                    CyclicBarrier
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第二部分 线程池</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../ThreadPool/ThreadPool-Intro.html">
+            
+                <a href="../ThreadPool/ThreadPool-Intro.html">
+            
+                    
+                    基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" >
+            
+                <span>
+            
+                    
+                    ThreadPoolExecutor
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" >
+            
+                <span>
+            
+                    
+                    ScheduledThreadPoolExecutor
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >PriorityBlockingQueue</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="priorityblockingqueue&#x8981;&#x70B9;">PriorityBlockingQueue&#x8981;&#x70B9;</h1>
+<ul>
+<li>PriorityBlockingQueue&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;BlockingQueue&#x63A5;&#x53E3;&#x3002;</li>
+<li>PriorityBlockingQueue&#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x754C;&#x5E76;&#x53D1;&#x961F;&#x5217;&#x3002;&#x5B83;&#x4F7F;&#x7528;&#x4E0E;java.util.PriorityQueue&#x7C7B;&#x76F8;&#x540C;&#x7684;&#x6392;&#x5E8F;&#x89C4;&#x5219;&#x3002;</li>
+<li>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x8FDB;&#x5165;&#x8BE5;&#x961F;&#x5217;&#x7684;&#x5143;&#x7D20;&#x4F1A;&#x81EA;&#x52A8;&#x6392;&#x5E8F;&#xFF0C;&#x5728;&#x83B7;&#x53D6;&#x8BE5;&#x961F;&#x5217;&#x7684;&#x5143;&#x7D20;&#x65F6;&#x8BE5;&#x961F;&#x5217;&#x7684;&#x5143;&#x7D20;&#x662F;&#x6392;&#x597D;&#x5E8F;&#x7684;&#x3002;</li>
+<li>&#x4E0D;&#x80FD;&#x5728;&#x6B64;&#x961F;&#x5217;&#x4E2D;&#x63D2;&#x5165;null&#x3002;</li>
+<li>&#x867D;&#x7136;&#x6B64;&#x961F;&#x5217;&#x5728;&#x903B;&#x8F91;&#x4E0A;&#x662F;&#x65E0;&#x754C;&#x7684;&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x8D44;&#x6E90;&#x8017;&#x5C3D;&#xFF08;&#x5BFC;&#x81F4;OutOfMemoryError&#xFF09;&#xFF0C;&#x5C1D;&#x8BD5;&#x6DFB;&#x52A0;&#x53EF;&#x80FD;&#x4F1A;&#x5931;&#x8D25;&#x3002;  </li>
+<li>&#x4F9D;&#x9760;&#x81EA;&#x7136;&#x6392;&#x5E8F;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x961F;&#x5217;&#x4E5F;&#x4E0D;&#x5141;&#x8BB8;&#x63D2;&#x5165;&#x4E0D;&#x53EF;&#x6BD4;&#x8F83;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x8FD9;&#x6837;&#x505A;&#x4F1A;&#x5BFC;&#x81F4;ClassCastException&#xFF09;&#x3002;</li>
+<li>&#x63D2;&#x5165;&#x5230;PriorityBlockingQueue&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x90FD;&#x5FC5;&#x987B;&#x5B9E;&#x73B0;java.lang.Comparable&#x63A5;&#x53E3;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6839;&#x636E;&#x60A8;&#x5728;&#x53EF;&#x6BD4;&#x8F83;&#x5B9E;&#x65BD;&#x4E2D;&#x51B3;&#x5B9A;&#x7684;&#x4EFB;&#x4F55;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x8FD9;&#x4E9B;&#x5143;&#x7D20;&#x5C06;&#x81EA;&#x52A8;&#x6392;&#x5E8F;&#x3002;</li>
+<li>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;PriorityBlockingQueue&#x4E0D;&#x5BF9;&#x5177;&#x6709;&#x76F8;&#x540C;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x5143;&#x7D20;&#xFF08;compare&#xFF08;&#xFF09;== 0&#xFF09;&#x5F3A;&#x5236;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x7279;&#x5B9A;&#x884C;&#x4E3A;&#x3002;</li>
+<li>&#x8BE5;&#x7C7B;&#x53CA;&#x5176;&#x8FED;&#x4EE3;&#x5668;&#x5B9E;&#x73B0;&#x4E86;Collection&#x548C;Iterator&#x63A5;&#x53E3;&#x7684;&#x6240;&#x6709;&#x53EF;&#x9009;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x65B9;&#x6CD5;iterator&#xFF08;&#xFF09;&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x4EE5;&#x4EFB;&#x4F55;&#x7279;&#x5B9A;&#x7684;&#x987A;&#x5E8F;&#x904D;&#x5386;PriorityBlockingQueue&#x7684;&#x5143;&#x7D20;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x6709;&#x5E8F;&#x904D;&#x5386;&#xFF0C;&#x8BF7;&#x8003;&#x8651;&#x4F7F;&#x7528;Arrays.sort&#xFF08;pq.toArray&#xFF08;&#xFF09;&#xFF09;&#x3002;</li>
+<li>&#x6B64;&#x5916;&#xFF0C;&#x65B9;&#x6CD5;drainTo&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x6309;&#x4F18;&#x5148;&#x7EA7;&#x987A;&#x5E8F;&#x5220;&#x9664;&#x4E00;&#x4E9B;&#x6216;&#x6240;&#x6709;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x5C06;&#x5B83;&#x4EEC;&#x653E;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x3002;</li>
+<li>&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x64CD;&#x4F5C;&#x4E0D;&#x4F1A;&#x4FDD;&#x8BC1;&#x540C;&#x7B49;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x5143;&#x7D20;&#x7684;&#x987A;&#x5E8F;&#x3002;&#x82E5;&#x8981;&#x5B9E;&#x73B0;&#x540C;&#x7B49;&#x4F18;&#x5148;&#x7EA7;&#x5143;&#x7D20;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x7C7B;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF1A;</li>
+<li>&#x4F8B;&#x5982;&#x4F60;&#x8981;&#x5B9E;&#x73B0;&#x6309;fifo&#x5BF9;&#x5143;&#x7D20;&#x6392;&#x5E8F;&#x7684;&#x673A;&#x5236;&#xFF1A;</li>
+</ul>
+<p>&#x5B98;&#x65B9;&#x7ED9;&#x51FA;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code> class FIFOEntry&lt;E extends Comparable&lt;? super E&gt;&gt;
+     implements Comparable&lt;FIFOEntry&lt;E&gt;&gt; {
+   static final AtomicLong seq = new AtomicLong(0);
+   final long seqNum;
+   final E entry;
+   public FIFOEntry(E entry) {
+     seqNum = seq.getAndIncrement();
+     this.entry = entry;
+   }
+   public E getEntry() { return entry; }
+   public int compareTo(FIFOEntry&lt;E&gt; other) {
+     int res = entry.compareTo(other.entry);
+     if (res == 0 &amp;&amp; other.entry != this.entry)
+       res = (seqNum &lt; other.seqNum ? -1 : 1);
+     return res;
+   }
+ }
+</code></pre><h2 id="&#x8FD4;&#x56DE;&#x503C;">&#x8FD4;&#x56DE;&#x503C;</h2>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>Throws Exception</th>
+<th>Special Value</th>
+<th>Blocks</th>
+<th>Times Out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insert</td>
+<td></td>
+<td>put(o),offer(o),add(o)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Remove</td>
+<td></td>
+<td>poll(),remove(o)</td>
+<td>take()</td>
+<td>poll(t)</td>
+</tr>
+<tr>
+<td>Examine</td>
+<td></td>
+<td>peek()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x8BF7;&#x6CE8;&#x610F;PriorityBlockingQueue&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x60C5;&#x51B5;&#x3002;</p>
+<ul>
+<li>&#x7531;&#x4E8E;PriorityBlockingQueue&#x961F;&#x5217;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x6269;&#x5BB9;&#xFF0C;&#x6240;&#x4EE5;&#x63D2;&#x5165;&#x5143;&#x7D20;&#x65F6;&#xFF0C;&#x4E0D;&#x7528;&#x7B49;&#x5F85;&#x963B;&#x585E;&#x3002;</li>
+<li>&#x83B7;&#x53D6;&#x5143;&#x7D20;&#x65F6;&#xFF0C;&#x82E5;&#x961F;&#x5217;&#x4E3A;&#x7A7A;&#xFF0C;&#x9700;&#x8981;&#x963B;&#x585E;&#x7B49;&#x5F85;&#x3002;</li>
+</ul>
+<h1 id="priorityblockingqueue&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x5206;&#x6790;">PriorityBlockingQueue&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x5206;&#x6790;</h1>
+<ul>
+<li>PriorityBlockingQueue&#x4F7F;&#x7528;&#x57FA;&#x4E8E;&#x6570;&#x7EC4;&#x7684;&#x4E8C;&#x53C9;&#x5806;&#xFF0C;&#x548C;&#x4E00;&#x4E2A;&#x516C;&#x5171;&#x7684;&#x9501;&#x6765;&#x5B9E;&#x73B0;&#x3002;</li>
+</ul>
+<h2 id="&#x53D8;&#x91CF;&#x5B9A;&#x4E49;">&#x53D8;&#x91CF;&#x5B9A;&#x4E49;</h2>
+<pre><code>// &#x6570;&#x7EC4;&#x7684;&#x9ED8;&#x8BA4;&#x5BB9;&#x91CF;&#x5927;&#x5C0F;
+private static final int DEFAULT_INITIAL_CAPACITY = 11;
+
+// &#x6570;&#x7EC4;&#x7684;&#x6700;&#x5927;&#x5BB9;&#x91CF;&#xFF0C;&#x6E90;&#x7801;&#x6CE8;&#x91CA;&#xFF1A;&#x6709;&#x7684;&#x865A;&#x62DF;&#x673A;&#x53EF;&#x80FD;&#x4F1A;&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x7684;&#x5934;&#x90E8;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x3002;
+private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
+
+// &#x6570;&#x7EC4;&#xFF0C;&#x8282;&#x70B9;queue[n]&#x7684;&#x513F;&#x5B50;&#x8282;&#x70B9;&#x662F; queue[2*n+1]&#x548C;queue[2*(n+1)]&#x3002;
+// &#x6CE8;&#xFF1A;&#x6700;&#x5C0F;&#x5806;&#x7684;&#x5B9A;&#x4E49;&#x548C;&#x4F7F;&#x7528;&#xFF0C;&#x8BE6;&#x7EC6;&#x89C1;&#x300A;&#x7B97;&#x6CD5;&#x5BFC;&#x8BBA;&#x300B;
+private transient Object[] queue;
+
+// &#x961F;&#x5217;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;
+private transient int size;
+
+// &#x6BD4;&#x8F83;&#x5668;&#xFF0C;&#x7528;&#x6765;&#x6392;&#x5E8F;
+private transient Comparator&lt;? super E&gt; comparator;
+
+// &#x5BF9;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;&#x540C;&#x6B65;&#x7684;&#x9501;
+private final ReentrantLock lock;
+
+// &#x57FA;&#x4E8E;&#x9501;&#x7684;&#x6761;&#x4EF6;&#x53D8;&#x91CF;
+private final Condition notEmpty;
+
+// &#x81EA;&#x65CB;&#x9501;&#xFF0C;&#x5728;&#x5206;&#x914D;&#x65B0;&#x7684;&#x7A7A;&#x95F4;&#x65F6;&#x8FDB;&#x884C;&#x540C;&#x6B65;
+private transient volatile int allocationSpinLock;
+
+// &#x4F18;&#x5148;&#x961F;&#x5217;&#x53D8;&#x91CF;&#xFF0C;&#x7528;&#x6765;&#x5411;&#x524D;&#x517C;&#x5BB9;
+private PriorityQueue q;
+</code></pre><h2 id="&#x6784;&#x9020;&#x51FD;&#x6570;">&#x6784;&#x9020;&#x51FD;&#x6570;</h2>
+<ul>
+<li>public PriorityBlockingQueue(int initialCapacity, Comparator&lt;? super E&gt; comparator)
+&#x6307;&#x5B9A;&#x5BB9;&#x91CF;&#x5927;&#x5C0F;&#x548C;&#x5BF9;&#x6BD4;&#x5668;&#x3002;&#x8BE5;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x521D;&#x59CB;&#x5316;&#x6570;&#x7EC4;&#x7684;&#x961F;&#x5217;&#x3002;</li>
+</ul>
+<pre><code>    public PriorityBlockingQueue(int initialCapacity,
+                                 Comparator&lt;? super E&gt; comparator) {
+        if (initialCapacity &lt; 1)
+            throw new IllegalArgumentException();
+        this.lock = new ReentrantLock();
+        this.notEmpty = lock.newCondition();
+        this.comparator = comparator;
+        this.queue = new Object[initialCapacity];
+    }
+</code></pre><ul>
+<li>public PriorityBlockingQueue(Collection&lt;? extends E&gt; c)
+&#x628A;&#x5DF2;&#x6709;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x590D;&#x5236;&#x5230;&#x4F18;&#x5148;&#x961F;&#x5217;&#x4E2D;&#x3002;&#x9700;&#x8981;&#x5206;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x5BF9;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF1A;<ul>
+<li>&#x82E5;&#x53C2;&#x6570;&#x7684;&#x7ED3;&#x5408;&#x7C7B;&#x578B;&#x662F;SortedSet&#x6216;PriorityBlockingQueue&#xFF0C;&#x5219;&#x4E0D;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5143;&#x7D20;&#x7684;&#x8C03;&#x6574;&#xFF08;&#x5806;&#x5316;&#xFF09;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<pre><code>public PriorityBlockingQueue(Collection&lt;? extends E&gt; c) {
+    this.lock = new ReentrantLock();
+    this.notEmpty = lock.newCondition();
+
+    boolean heapify = true; // true if not known to be in heap order
+    boolean screen = true;  // true if must screen for nulls
+
+    // &#x82E5;&#x53C2;&#x6570;&#x96C6;&#x5408;c&#x662F;SortedSet&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5806;&#x5316;
+    if (c instanceof SortedSet&lt;?&gt;) {
+        SortedSet&lt;? extends E&gt; ss = (SortedSet&lt;? extends E&gt;) c;
+        this.comparator = (Comparator&lt;? super E&gt;) ss.comparator();
+        heapify = false;
+    }
+    else if (c instanceof PriorityBlockingQueue&lt;?&gt;) {
+        // &#x82E5;&#x662F;&#x53C2;&#x6570;&#x662F;PriorityBlockingQueue&#x7C7B;&#x578B;&#x7684;&#xFF0C;&#x4E5F;&#x4E0D;&#x9700;&#x8981;&#x5806;&#x5316;
+        PriorityBlockingQueue&lt;? extends E&gt; pq =
+            (PriorityBlockingQueue&lt;? extends E&gt;) c;
+        this.comparator = (Comparator&lt;? super E&gt;) pq.comparator();
+        screen = false;
+        if (pq.getClass() == PriorityBlockingQueue.class) // exact match
+            heapify = false;
+    }
+
+    // &#x628A;&#x53C2;&#x6570;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x590D;&#x5236;&#x5230;Object[]&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x8BE5;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x5806;&#x5316;
+    Object[] a = c.toArray();
+    int n = a.length;
+    // If c.toArray incorrectly doesn&apos;t return Object[], copy it.
+    if (a.getClass() != Object[].class)
+        a = Arrays.copyOf(a, n, Object[].class);
+    if (screen &amp;&amp; (n == 1 || this.comparator != null)) {
+        for (int i = 0; i &lt; n; ++i)
+            if (a[i] == null)
+                throw new NullPointerException();
+    }
+    this.queue = a;
+    this.size = n;
+    // &#x6839;&#x636E;&#x60C5;&#x51B5;&#x8FDB;&#x884C;&#x5806;&#x5316;
+    if (heapify)
+        heapify();
+}
+</code></pre><h2 id="&#x5185;&#x90E8;&#x51FD;&#x6570;">&#x5185;&#x90E8;&#x51FD;&#x6570;</h2>
+<ul>
+<li>siftUpComparable<ul>
+<li>&#x8BE5;&#x51FD;&#x6570;&#x5728;&#x6700;&#x5C0F;&#x5806;&#x7684;&#x4F4D;&#x7F6E;k&#x4E2D;&#x63D2;&#x5165;&#x4E00;&#x4E2A;&#x5143;&#x7D20;x&#x3002;</li>
+<li>&#x8BE5;&#x51FD;&#x6570;&#x7528;&#x6765;&#x8C03;&#x6574;&#x6700;&#x5C0F;&#x5806;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4FDD;&#x8BC1;&#x63D2;&#x5165;&#x5143;&#x7D20;&#x540E;&#xFF0C;&#x6EE1;&#x8DB3;&#x6700;&#x5C0F;&#x5806;&#x7684;&#x7279;&#x6027;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<pre><code>private static &lt;T&gt; void siftUpComparable(int k, T x, Object[] array) {
+    Comparable&lt;? super T&gt; key = (Comparable&lt;? super T&gt;) x;
+    while (k &gt; 0) {
+        // &#x627E;&#x5230;&#x7236;&#x7ED3;&#x70B9;&#x7684;&#x4F4D;&#x7F6E;
+        int parent = (k - 1) &gt;&gt;&gt; 1;
+        // &#x83B7;&#x53D6;&#x7236;&#x7ED3;&#x70B9;&#x7684;&#x503C;
+        Object e = array[parent];
+        // &#x63D2;&#x5165;&#x7684;&#x503C;&#x5927;&#x4E8E;&#x7236;&#x8282;&#x70B9;&#x7684;&#x503C;&#xFF0C;&#x76F4;&#x63A5;&#x63D2;&#x5165;
+        if (key.compareTo((T) e) &gt;= 0)
+            break;
+        // &#x5426;&#x5219;&#x548C;&#x7236;&#x8282;&#x70B9;&#x4EA4;&#x6362;&#xFF0C;&#x5E76;&#x91CD;&#x590D;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#xFF0C;&#x76F4;&#x5230;&#x8BE5;&#x8282;&#x70B9;&#x7684;&#x503C;&#x5927;&#x4E8E;&#x7236;&#x8282;&#x70B9;&#x3002;
+        array[k] = e;
+        k = parent;
+    }
+    array[k] = key;
+}
+</code></pre><ul>
+<li>private static <t> void siftDownComparable(int k, T x, Object[] array, int n)
+&#x53C2;&#x6570;&#x8BF4;&#x660E;&#xFF1A;<ul>
+<li>k: &#x9700;&#x8981;&#x63D2;&#x5165;&#x5143;&#x7D20;&#x7684;&#x4F4D;&#x7F6E;</li>
+<li>x&#xFF1A;&#x9700;&#x8981;&#x63D2;&#x5165;&#x7684;&#x5143;&#x7D20;&#x503C;</li>
+<li>array: &#x4FDD;&#x5B58;&#x5806;&#x7684;&#x6570;&#x7EC4;</li>
+<li>n&#xFF1A;&#x76EE;&#x524D;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x4E2A;&#x6570;
+&#x529F;&#x80FD;&#xFF1A;</li>
+<li>&#x628A;x&#x63D2;&#x5165;&#x5230;&#x5806;&#x4E2D;&#x3002;&#x8BE5;&#x51FD;&#x6570;&#x4F1A;&#x4E0D;&#x65AD;&#x8C03;&#x6574;&#x5806;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x8BA9;&#x6240;&#x6709;&#x7684;&#x5B69;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;&#x5C0F;&#x4E8E;&#x7236;&#x8282;&#x70B9;&#x7684;&#x503C;&#x3002;</li>
+<li>&#x5177;&#x4F53;&#x7684;&#x5806;&#x8C03;&#x6574;&#x7684;&#x6B65;&#x9AA4;&#x8BE6;&#x89C1;&#x300A;&#x7B97;&#x6CD5;&#x5BFC;&#x8BBA;&#x300B;&#x7684;&#x5806;&#x6392;&#x5E8F;&#x3002;</li>
+</ul>
+</t></li>
+</ul>
+<pre><code>private static &lt;T&gt; void siftDownComparable(int k, T x, Object[] array,
+                                           int n) {
+    if (n &gt; 0) {
+        Comparable&lt;? super T&gt; key = (Comparable&lt;? super T&gt;)x;
+        // &#x6570;&#x7EC4;&#x7684;&#x4E2D;&#x95F4;&#x4F4D;&#x7F6E;&#x4E00;&#x5B9A;&#x662F;&#x53F6;&#x5B50;&#x8282;&#x70B9;
+        int half = n &gt;&gt;&gt; 1;           // loop while a non-leaf
+        while (k &lt; half) {
+            // &#x83B7;&#x53D6;&#x5DE6;&#x8FB9;&#x7684;&#x53F6;&#x5B50;&#x8282;&#x70B9;
+            int child = (k &lt;&lt; 1) + 1; // assume left child is least
+            Object c = array[child];
+            // &#x53F3;&#x8FB9;&#x7684;&#x513F;&#x5B50;&#x8282;&#x70B9;
+            int right = child + 1;
+            // &#x82E5;&#x53F3;&#x8FB9;&#x7684;&#x7D22;&#x5F15;&#x6570;&#x5C0F;&#x4E8E;&#x5143;&#x7D20;&#x4E2A;&#x6570;,&#x4E14;&#x5DE6;&#x8FB9;&#x7684;&#x5927;&#x4E8E;&#x53F3;&#x8FB9;&#x7684;&#x513F;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;
+            // &#x628A;&#x53F3;&#x8FB9;&#x7684;&#x513F;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;&#x8D4B;&#x7ED9;&#x53D8;&#x91CF;c
+            if (right &lt; n &amp;&amp;
+                ((Comparable&lt;? super T&gt;) c).compareTo((T) array[right]) &gt; 0)
+                c = array[child = right];
+            // &#x82E5;&#x63D2;&#x5165;&#x7684;&#x503C;&#x5C0F;&#x4E8E;c&#xFF0C;k&#x5E94;&#x8BE5;&#x4F5C;&#x4E3A;&#x7236;&#x8282;&#x70B9;&#xFF0C;&#x5426;&#x5219;k&#x5E94;&#x8BE5;&#x4F5C;&#x4E3A;&#x513F;&#x5B50;&#x8282;&#x70B9;
+            if (key.compareTo((T) c) &lt;= 0)
+                break;
+            // c&#x662F;&#x7236;&#x8282;&#x70B9;
+            array[k] = c;
+            k = child;
+        }
+        // &#x63D2;&#x5165;&#x7684;&#x503C;&#x4F5C;&#x4E3A;&#x7236;&#x8282;&#x70B9;
+        array[k] = key;
+    }
+}
+</code></pre><ul>
+<li>private E dequeue()
+&#x529F;&#x80FD;&#x8BF4;&#x660E;&#xFF1A;&#x8BE5;&#x51FD;&#x6570;&#x83B7;&#x53D6;&#x5806;&#x7684;&#x9876;&#x70B9;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6700;&#x5C0F;&#x7684;&#x5143;&#x7D20;&#x3002;&#x7136;&#x540E;&#x518D;&#x8FDB;&#x884C;&#x5806;&#x5316;&#x3002;</li>
+</ul>
+<pre><code>    private E dequeue() {
+        int n = size - 1;
+        if (n &lt; 0)
+            return null;
+        else {
+            Object[] array = queue;
+            // &#x83B7;&#x53D6;&#x5806;&#x7684;&#x9876;&#x70B9;&#x5143;&#x7D20;
+            E result = (E) array[0];
+            // &#x53D6;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x63D2;&#x5165;&#x5230;&#x5806;&#x7684;&#x9876;&#x70B9;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x5806;&#x5316;
+            E x = (E) array[n];
+            array[n] = null;
+            Comparator&lt;? super E&gt; cmp = comparator;
+            if (cmp == null)
+                siftDownComparable(0, x, array, n);
+            else
+                siftDownUsingComparator(0, x, array, n, cmp);
+            size = n;
+            return result;
+        }
+    }
+</code></pre><ul>
+<li>private void tryGrow(Object[] array, int oldCap)</li>
+</ul>
+<pre><code>private void tryGrow(Object[] array, int oldCap) {
+        lock.unlock(); // must release and then re-acquire main lock
+        Object[] newArray = null;
+        if (allocationSpinLock == 0 &amp;&amp;
+            UNSAFE.compareAndSwapInt(this, allocationSpinLockOffset,
+                                     0, 1)) {
+            try {
+                // &#x5206;&#x914D;&#x8FD9;&#x4E48;&#x591A;&#x65B0;&#x7684;&#x7A7A;&#x95F4;
+                int newCap = oldCap + ((oldCap &lt; 64) ?
+                                       (oldCap + 2) : // grow faster if small
+                                       (oldCap &gt;&gt; 1));
+                if (newCap - MAX_ARRAY_SIZE &gt; 0) {    // possible overflow
+                    int minCap = oldCap + 1;
+                    if (minCap &lt; 0 || minCap &gt; MAX_ARRAY_SIZE)
+                        throw new OutOfMemoryError();
+                    newCap = MAX_ARRAY_SIZE;
+                }
+                if (newCap &gt; oldCap &amp;&amp; queue == array)
+                    newArray = new Object[newCap];
+            } finally {
+                allocationSpinLock = 0;
+            }
+        }
+        if (newArray == null) // back off if another thread is allocating
+            Thread.yield();
+        lock.lock();
+        // &#x590D;&#x5236;&#x539F;&#x6765;&#x7684;&#x6570;&#x7EC4;&#x7684;&#x503C;&#x5230;&#x65B0;&#x7684;&#x6570;&#x7EC4;&#x4E2D;
+        if (newArray != null &amp;&amp; queue == array) {
+            queue = newArray;
+            System.arraycopy(array, 0, newArray, 0, oldCap);
+        }
+    }
+</code></pre><h2 id="&#x5BF9;&#x5916;&#x51FD;&#x6570;">&#x5BF9;&#x5916;&#x51FD;&#x6570;</h2>
+<ul>
+<li>public E take() throws InterruptedException<ul>
+<li>&#x8BE5;&#x51FD;&#x6570;&#x83B7;&#x53D6;&#x4F18;&#x5148;&#x961F;&#x5217;&#x5934;&#x90E8;&#x7684;&#x5143;&#x7D20;&#x503C;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;</li>
+<li>&#x82E5;&#x961F;&#x5217;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x963B;&#x585E;&#x7B49;&#x5F85;</li>
+</ul>
+</li>
+</ul>
+<pre><code>   public E take() throws InterruptedException {
+        final ReentrantLock lock = this.lock;
+        lock.lockInterruptibly();
+        E result;
+        try {
+            while ( (result = dequeue()) == null)
+                notEmpty.await();
+        } finally {
+            lock.unlock();
+        }
+        return result;
+    }
+</code></pre><ul>
+<li>public void put(E e)
+&#x8BE5;&#x51FD;&#x6570;&#x5728;&#x5411;&#x961F;&#x5217;&#x4E2D;&#x63D2;&#x5165;&#x5143;&#x7D20;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x963B;&#x585E;&#x6216;&#x7B49;&#x5F85;&#x3002;&#x56E0;&#x4E3A;&#x961F;&#x5217;&#x7684;&#x957F;&#x5EA6;&#x53EF;&#x4EE5;&#x65E0;&#x9650;&#x589E;&#x52A0;&#x3002;</li>
+</ul>
+<pre><code>    public void put(E e) {
+        offer(e); // never need to block
+    }
+</code></pre><ul>
+<li>public boolean offer(E e)<ul>
+<li>&#x8BE5;&#x51FD;&#x6570;&#x5411;&#x961F;&#x5217;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x503C;&#x4E3A;e&#x7684;&#x5143;&#x7D20;&#x3002;</li>
+<li>&#x82E5;&#x6570;&#x7EC4;&#x5DF2;&#x6EE1;&#xFF0C;&#x8C03;&#x7528;tryGrow&#x51FD;&#x6570;&#x52A8;&#x6001;&#x589E;&#x52A0;&#x5BB9;&#x91CF;&#x3002;</li>
+<li>&#x6CE8;&#x610F;&#xFF1A;&#x4E3B;&#x8981;&#x6269;&#x5BB9;&#x7684;&#x4EE3;&#x4EF7;&#x662F;&#x5F88;&#x5927;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x8981;&#x8FDB;&#x884C;&#x6570;&#x7EC4;&#x7684;&#x5168;&#x90E8;&#x590D;&#x5236;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<pre><code>public boolean offer(E e) {
+    if (e == null)
+        throw new NullPointerException();
+    final ReentrantLock lock = this.lock;
+    lock.lock();
+    int n, cap;
+    Object[] array;
+    // &#x5927;&#x4E8E;&#x6570;&#x7EC4;&#x7684;&#x5BB9;&#x91CF;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x6269;&#x5BB9;
+    while ((n = size) &gt;= (cap = (array = queue).length))
+        tryGrow(array, cap);
+
+    // &#x628A;&#x5143;&#x7D20;e&#x63D2;&#x5165;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x5806;&#x5316;
+    try {
+        Comparator&lt;? super E&gt; cmp = comparator;
+        if (cmp == null)
+            siftUpComparable(n, e, array);
+        else
+            siftUpUsingComparator(n, e, array, cmp);
+        size = n + 1;
+        notEmpty.signal();
+    } finally {
+        lock.unlock();
+    }
+    return true;
+}
+</code></pre><ul>
+<li>public boolean add(E e)
+&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x5230;&#x4F18;&#x5148;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x6210;&#x529F;&#x8FD4;&#x56DE;true&#x3002;&#x5931;&#x8D25;&#x8FD4;&#x56DE;false&#x3002;</li>
+</ul>
+<pre><code>    public boolean add(E e) {
+        return offer(e);
+    }
+</code></pre><ul>
+<li>public E poll()
+&#x4ECE;&#x961F;&#x5217;&#x5934;&#x90E8;&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x5220;&#x9664;&#x8BE5;&#x5143;&#x7D20;&#x3002;</li>
+</ul>
+<pre><code>    public E poll() {
+        final ReentrantLock lock = this.lock;
+        lock.lock();
+        try {
+            return dequeue();
+        } finally {
+            lock.unlock();
+        }
+    }
+</code></pre><h1 id="priorityblockingqueue&#x5B9E;&#x6218;">PriorityBlockingQueue&#x5B9E;&#x6218;</h1>
+<h2 id="&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x578B;">&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x578B;</h2>
+<p>&#x4F7F;&#x7528;PriorityBlockingQueue&#x7F16;&#x5199;&#x7684;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x578B;&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x751F;&#x4EA7;&#x8005;&#x4E0D;&#x4F1A;&#x963B;&#x585E;&#x7B49;&#x5F85;&#x3002;</p>
+<pre><code>package BlockingQueue;
+
+import java.util.Random;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
+
+class PutTask implements Runnable {
+    private BlockingQueue queue;
+    private Random r = new Random(1000);
+
+    PutTask(BlockingQueue q) {
+        queue = q;
+    }
+
+    public void run() {
+        while (true) {
+            try {
+                Thread.sleep(2);
+
+                String value = Integer.toString(r.nextInt(1000));
+                queue.put(value);
+                System.out.println(Thread.currentThread().getName() + &quot; put value: &quot; + value);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+class DealTask implements Runnable {
+    private BlockingQueue queue;
+    private Random r = new Random(10000);
+
+    DealTask(BlockingQueue q) {
+        queue = q;
+    }
+
+    public void run() {
+        while (true) {
+            try {
+                Thread.sleep(3);
+                String o = (String) queue.take();
+                System.out.println(Thread.currentThread().getName() + &quot; get value: &quot; + o);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class DoPriorityBQ {
+    public static void main(String[] args) {
+        final BlockingQueue q = new PriorityBlockingQueue(1000);
+        new Thread(new PutTask(q), &quot;producer3&quot;).start();
+        new Thread(new DealTask(q), &quot;consumer2&quot;).start();
+        new Thread(new DealTask(q), &quot;consumer1&quot;).start();
+
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre><h2 id="&#x6D4B;&#x8BD5;&#x6392;&#x5E8F;&#x529F;&#x80FD;">&#x6D4B;&#x8BD5;&#x6392;&#x5E8F;&#x529F;&#x80FD;</h2>
+<p>&#x4EE5;&#x4E0B;&#x7A0B;&#x5E8F;&#x6D4B;&#x8BD5;&#x4F18;&#x5148;&#x963B;&#x585E;&#x961F;&#x5217;&#x7684;&#x6392;&#x5E8F;&#x529F;&#x80FD;&#x3002;</p>
+<pre><code>package BlockingQueue;
+
+import java.util.Random;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
+
+
+public class DoPriorityBQ2 {
+
+    public static void main(String[] args) throws InterruptedException {
+        final BlockingQueue&lt;Integer&gt; queue = new PriorityBlockingQueue&lt;Integer&gt;(10);
+        Random r = new Random(100);
+
+        for (int i = 0; i &lt; 10; i++) {
+            int vi = r.nextInt(100);
+            System.out.print(&quot; &quot; + vi);
+            queue.put(vi);
+        }
+
+        System.out.println(&quot;\n&quot;);
+
+        Integer v;
+        while ((v = queue.take()) != null) {
+            System.out.print(&quot; &quot; + String.valueOf(v));
+        }
+
+    }
+}
+</code></pre><p>&#x7A0B;&#x5E8F;&#x89E3;&#x8BFB;&#xFF1A;</p>
+<ul>
+<li>&#x8BE5;&#x7A0B;&#x5E8F;&#x4F1A;&#x5148;&#x5728;&#x961F;&#x5217;&#x4E2D;&#x63D2;&#x5165;&#x4E00;&#x4E9B;&#x968F;&#x673A;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6BCF;&#x6B21;&#x53D6;&#x961F;&#x5217;&#x7684;&#x5934;&#x8282;&#x70B9;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x8F93;&#x51FA;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x6392;&#x597D;&#x5E8F;&#x7684;&#x3002;</li>
+<li>&#x8BE5;&#x7A0B;&#x5E8F;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x591A;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;&#x7684;&#x6392;&#x5E8F;&#x529F;&#x80FD;&#x3002;</li>
+</ul>
+<h1 id="priorityblockingqueue&#x7684;&#x603B;&#x7ED3;">PriorityBlockingQueue&#x7684;&#x603B;&#x7ED3;</h1>
+<ul>
+<li>&#x8BE5;&#x961F;&#x5217;&#x4F1A;&#x81EA;&#x52A8;&#x5BF9;&#x63D2;&#x5165;&#x7684;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF1A;&#x5728;&#x8BFB;&#x53D6;&#x961F;&#x5217;&#x5143;&#x7D20;&#x65F6;&#xFF0C;&#x8BE5;&#x961F;&#x5217;&#x5DF2;&#x7ECF;&#x6392;&#x597D;&#x5E8F;&#x4E86;&#x3002;</li>
+<li>PriorityBlockingQueue&#x662F;&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x5B9E;&#x73B0;&#x7684;&#x4E8C;&#x53C9;&#x5806;&#xFF0C;&#x4F7F;&#x7528;&#x5BF9;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x3002;</li>
+<li>&#x7531;&#x4E8E;&#x961F;&#x5217;&#x4F1A;&#x81EA;&#x52A8;&#x6269;&#x5BB9;&#xFF0C;&#x6240;&#x4EE5;&#x961F;&#x5217;&#x7684;&#x5199;&#x5165;&#x5143;&#x7D20;&#x65B9;&#x6CD5;&#x4E0D;&#x4F1A;&#x7B49;&#x5F85;&#xFF0C;&#x82E5;&#x5E94;&#x7528;&#x4E2D;&#x9700;&#x8981;&#x5F88;&#x9AD8;&#x7684;&#x5E76;&#x53D1;&#xFF0C;&#x5EFA;&#x8BAE;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x8BE5;&#x961F;&#x5217;&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528;ArrayBlockingQueue&#x3002;</li>
+<li>&#x7531;&#x4E8E;&#x961F;&#x5217;&#x7684;&#x6269;&#x5BB9;&#x64CD;&#x4F5C;&#x4EE3;&#x4EF7;&#x5F88;&#x5927; &#xFF1A;&#x4F1A;&#x7533;&#x8BF7;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x961F;&#x5217;&#xFF0C;&#x5E76;&#x628A;&#x5143;&#x7D20;&#x590D;&#x5236;&#x5230;&#x65B0;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x5B9E;&#x9645;&#x573A;&#x666F;&#x4E2D;&#xFF0C;&#x5E94;&#x8BE5;&#x9884;&#x5148;&#x89C4;&#x5212;&#x597D;&#x961F;&#x5217;&#x7684;&#x8363;&#x5BB9;&#x91CF;&#x5927;&#x5C0F;&#x3002;</li>
+<li>&#x8BE5;&#x961F;&#x5217;&#x53EF;&#x80FD;&#x4F1A;&#x5BF9;&#x6BCF;&#x4E2A;&#x63D2;&#x5165;&#x7684;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x5806;&#x7684;&#x8C03;&#x6574;&#xFF0C;&#x6240;&#x4EE5;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;O(1)~O(lgn)&#x3002;</li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hoverzheng.github.io 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Updated:
+2020-05-25 22:39:45
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"PriorityBlockingQueue","level":"4.6","depth":1,"next":{"title":"SynchronousQueue","level":"4.7","depth":1,"ref":"","articles":[]},"previous":{"title":"LinkedTransferQueue","level":"4.5","depth":1,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["github","codesnippet","splitter","page-toc-button","image-captions","editlink","back-to-top-button","-lunr","-search","search-plus","github-buttons@2.1.0","favicon@^0.0.2","tbfed-pagefooter@^0.0.1","3-ba"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © hoverzheng.github.io 2017","modify_label":"Updated:","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hoverzheng/java-concurrent-programming"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/hoverzheng/java-concurrent-programming/blob/master/"},"splitter":{},"codesnippet":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"page-toc-button":{},"back-to-top-button":{},"github-buttons":{"repo":"hoverzheng/java-concurrent-programming","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"11f7d254cfa4e0ca44b175c66d379ecc"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{},"image-captions":{"caption":"图片 - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Hover Zheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"./OtherIC/CyclicBarrier.html#fig9.1.1","level":"9.1","list_caption":"Figure: CyclicBarrier","alt":"CyclicBarrier","nro":1,"url":"./assets/cyclic-barrier.png","index":1,"caption_template":"图片 - _CAPTION_","label":"CyclicBarrier","attributes":{},"skip":false,"key":"9.1.1"}]},"title":"java concurrent programming","language":"zh-hans","links":{"sidebar":{"Hover Zheng":"https://hoverzheng.github.io"}},"gitbook":"*","description":"Java concurrent programming|hoverzheng.github.io|Hover Zheng"},"file":{"path":"IQueue/PriorityBlockingQueue.md","mtime":"2020-05-25T14:39:45.520Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-25T14:44:50.395Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
