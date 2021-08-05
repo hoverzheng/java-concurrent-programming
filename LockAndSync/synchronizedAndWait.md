@@ -58,7 +58,7 @@ class Body() {
 
 * 使用静态synchronized的例子：
 
-```
+```java
 package DoThread;
 
 import java.util.concurrent.ExecutorService;
@@ -205,7 +205,7 @@ synchronized void changeCondition() {
 ### 用wait和notify实现的生产者消费者模型
 
 下面的代码是用wait和notify实现的多生产者和消费者模型。
-```
+```java
 package DoThread;
 
 
