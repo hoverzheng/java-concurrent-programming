@@ -22,3 +22,10 @@ AtomicReference的使用
 
 AtomicReference的
 
+
+
+
+
+参考：
+
+* https://www.jianshu.com/p/5521ae322743
