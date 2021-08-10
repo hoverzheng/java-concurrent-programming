@@ -4,7 +4,7 @@
 ### 第一章 锁和条件变量
 * [Sync和Wait](./LockAndSync/synchronizedAndWait.md)
 
-* [显示锁](./LockAndSync/ReentrantLockAndCondition.md)
+* [可重入锁](./LockAndSync/ReentrantLockAndCondition.md)
 
 ### 第二章 Queue
 
