@@ -10,14 +10,14 @@
 * 在非多线程的情况下，应当尽量使用TreeMap。
 * 此外对于并发性相对较低的并行程序可以使用 Collections.synchronizedSortedMap将TreeMap进行包装，也可以提供较好的效率。
 
-### 和concurrentHashMap的不同点
+### 和ConcurrentHashMap的不同点
 
 * 根据规范，ConcurrentHashMap不保证其操作的运行时间。其中ConcurrentSkipListMap保证了大多数操作的O(log(n))性能。
 * ConcurrentHashMap允许修改线程数以调整并发行为，其中ConcurrentSkipListMap不允许修改并发线程数。
 * ConcurrentHashMap不是NavigableMap也不是SortedMap，但是ConcurrentSkipListMap既是NavigableMap又是SortedMap。
 * ConcurrentSkipListMap是通过跳转表实现的，key排序的map结构，而CocurrentHashMap不是。
 
-### concurrentHashMap实战
+### ConcurrentSkipListMap实战
 
 ```java
 package ConcurrentCollection;
